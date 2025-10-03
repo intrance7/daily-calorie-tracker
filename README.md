@@ -13,8 +13,7 @@ It calculates:
 - Average calories per meal  
 - Compares with a user input limit
 - Warns if the limit is exceeded  
-
-The program can also save a report into a file (`calorie_log.txt`) for future reference.
+The program can also save a report into a file (`calorie_log.txt`) with time stamps for future reference.
 
 ---
 
