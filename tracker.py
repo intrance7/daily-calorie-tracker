@@ -75,8 +75,12 @@ else:
 
 save = input("\nDo you want to save this report to a file? (yes/no): ")
 if save.lower() == "yes":
+    from datetime import datetime
+    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")  # Current timestamp
+
     with open("calorie_log.txt", "a") as f:
         f.write("======================= DAILY REPORT =======================\n")
+        f.write(f"Timestamp: {timestamp}\n")  # Added timestamp here
         f.write(f"Name: {name}\n")
         f.write(f"{'Meal Name':<15} {'Calories':>8}\n")
         f.write("-" * 28 + "\n")
@@ -88,9 +92,11 @@ if save.lower() == "yes":
         if total > limit:
             f.write(f"⚠ Warning: You crossed your daily limit of {limit}!\n")
         else:
-            f.write(f"✅ Good: You are within your {limit} calorie limit.\n")
+            f.write(f"Good: You are within your {limit} calorie limit.\n")
         f.write("\n")  # Blank line for the next report
-    print("Report saved to calorie_log.txt")
+
+    print("Report saved to calorie_log.txt with timestamp.")
+
 
 # -------------------- END OF PROGRAM --------------------
 print(f"\nThank you {name} for using Daily Calorie Tracker!")
